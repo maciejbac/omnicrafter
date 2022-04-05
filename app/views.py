@@ -20,7 +20,7 @@ def index(request):
 			response = 'The cheapest ' + name + ' costs: ' + str(price) + 'gil'
 			return HttpResponse(response)
 
-			form.save()
+			# form.save()
 			
 	context = {'form':form}
 	return render(request, 'app/index.html', context)
