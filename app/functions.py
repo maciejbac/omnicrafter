@@ -14,6 +14,13 @@ def getName(itemID):
     f.close()
 
 def getPrice(itemID):
+
     result = request.get('https://universalis.app/api/Lich/' + itemID)
-    price = result.json()['listings'][1]['pricePerUnit']
-    return price
+
+    try:
+        price = result.json()['listings'][1]['pricePerUnit']
+    except:
+        price = 'Not available'
+        return price
+
+    return str(price) + 'gil'
