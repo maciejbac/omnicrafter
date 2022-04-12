@@ -4,7 +4,7 @@ import os
 
 def main():
 
-    answer = input('Would you like to search for an item with\n1. item ID\n2. Name\n')
+    answer = input('Would you like to search for an item with\n1. item ID\n2. Name\n3. Recipe\nAnswer: ')
 
     if answer == '1':
         item = input('Item ID: ')
@@ -15,7 +15,11 @@ def main():
         print(searchByName(item))
 
     elif answer == '3':
-        item = 'Pumpkin Potage'
+        answer = input('1. Pumpkin Potage\n2. Chilled Popoto Soup\nAnswer: ')
+        if answer == '1':
+            item = 'Pumpkin Potage'
+        elif answer == '2':
+            item = 'Chilled Popoto Soup'
         getCraftingCost(item)
 
     else:
@@ -24,24 +28,24 @@ def main():
 ###############################
 
 def getCraftingCost(item):
-    cost = getPrice(getID(item))
-    print('The cheapest ' + item + ' costs: ' + str(cost) + ' gil')
+    value = getPrice(getID(item))
+    print('The cheapest ' + item + ' costs: ' + str(value) + ' gil')
 
     matsArray = searchMats(item)
     itemYield = int(matsArray[0])
     matsArray.pop(0)
 
-    total = 0
+    cost = 0
     for material in matsArray:
         materialID = getID(material)
         materialPrice = getPrice(materialID)
-        total = total + materialPrice
+        cost = cost + materialPrice
 
+    value = value * itemYield
+    profit = value - cost
 
-    total = total/itemYield
-    profit = cost - total
-
-    print('Total price to craft ' + item + 'is: ' + str(int(total)) + ' gil')
+    print('Total price to craft ' + str(itemYield) + ' ' + item + ' is: ' + str(int(cost)) + ' gil')
+    print('Total sale price of ' + str(itemYield) + ' ' + item + ' is: ' + str(int(value)) + ' gil')
     print('Profit per craft: ' + str(int(profit)) + ' gil')
 
 
