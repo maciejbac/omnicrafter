@@ -1,10 +1,16 @@
 import requests as request
 import csv
 import os
-from django.conf import settings
+
+def main():
+    item_id = '34632'
+    price = getPrice(item_id)
+    name = getName(item_id)
+    response = 'The cheapest ' + name + ' costs: ' + price
+    print(response)
 
 def getName(itemID):
-    f = open(os.path.join(settings.BASE_DIR, 'files/items.csv'))
+    f = open(os.path.join('items.csv'))
     items_file = csv.reader(f)
 
     for row in items_file:
@@ -14,9 +20,7 @@ def getName(itemID):
     f.close()
 
 def getPrice(itemID):
-
     result = request.get('https://universalis.app/api/Lich/' + itemID)
-
     try:
         price = result.json()['listings'][1]['pricePerUnit']
     except:
@@ -24,3 +28,6 @@ def getPrice(itemID):
         return price
 
     return str(price) + 'gil'
+
+if __name__ == "__main__":
+    main()
