@@ -1,6 +1,15 @@
-import requests as request
-import csv
-import os
+from tkinter import *
+
+gui = Tk(className='Python Examples - Window Color')
+# set window size
+gui.geometry("400x200")
+
+#set window color
+gui.configure(bg='blue')
+
+gui.mainloop() 
+
+###################
 
 def main():
 
@@ -118,5 +127,5 @@ def getPrice(itemID):
 
     return int(price)
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
