@@ -15,7 +15,7 @@ def main():
         print(searchByName(item))
 
     elif answer == '3':
-        answer = input('1. Pumpkin Potage\n2. Chilled Popoto Soup\nAnswer: ')
+        answer = input('Recipes:\n1. Pumpkin Potage\n2. Chilled Popoto Soup\nAnswer: ')
         if answer == '1':
             item = 'Pumpkin Potage'
         elif answer == '2':
