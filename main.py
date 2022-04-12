@@ -31,8 +31,7 @@ def getCraftingCost(item):
     print('The cheapest ' + item + ' costs: ' + str(value) + ' gil')
 
     matsArray = searchMats(item)
-    itemYield = int(matsArray[0])
-    matsArray.pop(0)
+    itemYield = int(matsArray.pop(0))
 
     cost = 0
     for material in matsArray:
