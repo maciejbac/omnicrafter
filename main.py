@@ -3,11 +3,21 @@ import csv
 import os
 
 def main():
-    item_id = '34632'
+    item_id = input('Item ID: ')
+
+    if int(item_id) > 36700:
+        print('Item ID out of range')
+        return
+
     price = getPrice(item_id)
     name = getName(item_id)
-    response = 'The cheapest ' + name + ' costs: ' + price
+    if price == -1:
+        response = str(name) + ' is not available.'
+    else:
+        response = 'The cheapest ' + str(name) + ' costs: ' + str(price) + ' gil'
     print(response)
+
+################################
 
 def getName(itemID):
     f = open(os.path.join('items.csv'))
@@ -18,16 +28,17 @@ def getName(itemID):
             f.close()
             return row[1]
     f.close()
+    return 'NotFound'
 
 def getPrice(itemID):
     result = request.get('https://universalis.app/api/Lich/' + itemID)
     try:
         price = result.json()['listings'][1]['pricePerUnit']
     except:
-        price = 'Not available'
-        return price
+        price = -1
+        return int(price)
 
-    return str(price) + 'gil'
+    return int(price)
 
 if __name__ == "__main__":
     main()
