@@ -14,15 +14,53 @@ def main():
         item = input('Item Name: ')
         print(searchByName(item))
 
+    elif answer == '3':
+        item = 'Pumpkin Potage'
+        getCraftingCost(item)
+
     else:
         print('Incorrect input')
 
-    
-
 ###############################
 
-def getCSraftingCost(item):
-    print('yes')
+def getCraftingCost(item):
+    cost = getPrice(getID(item))
+    print('The cheapest ' + item + ' costs: ' + str(cost) + ' gil')
+
+    matsArray = searchMats(item)
+    itemYield = int(matsArray[0])
+    matsArray.pop(0)
+
+    total = 0
+    for material in matsArray:
+        materialID = getID(material)
+        materialPrice = getPrice(materialID)
+        total = total + materialPrice
+
+
+    total = total/itemYield
+    profit = cost - total
+
+    print('Total price to craft ' + item + 'is: ' + str(int(total)) + ' gil')
+    print('Profit per craft: ' + str(int(profit)) + ' gil')
+
+
+
+
+def searchMats(item):
+    f = open(os.path.join('recipes.csv'))
+    items_file = csv.reader(f)
+
+    for row in items_file:
+        if str(row[0]).lower() == str(item).lower():
+            f.close()
+            itemArray = []
+            for entry in row:
+                itemArray.append(entry)
+            itemArray.pop(0)
+            return itemArray
+    f.close()
+    return 'NotFound'
 
 def searchByName(item):
     item = getID(item)
