@@ -19,7 +19,11 @@ def main():
             item = 'Pumpkin Potage'
         elif answer == '2':
             item = 'Chilled Popoto Soup'
-        getCraftingCost(item)
+
+        itemYield, cost, value, profit = getCraftingCost(item)
+        print('Total price to craft ' + str(itemYield) + ' ' + item + ' is: ' + str(int(cost)) + ' gil')
+        print('Total sale price of ' + str(itemYield) + ' ' + item + ' is: ' + str(int(value)) + ' gil')
+        print('Profit per craft: ' + str(int(profit)) + ' gil')
 
     else:
         print('Incorrect input')
@@ -28,7 +32,6 @@ def main():
 
 def getCraftingCost(item):
     value = getPrice(getID(item))
-    print('The cheapest ' + item + ' costs: ' + str(value) + ' gil')
 
     matsArray = searchMats(item)
     itemYield = int(matsArray.pop(0))
@@ -42,10 +45,7 @@ def getCraftingCost(item):
     value = value * itemYield
     profit = value - cost
 
-    print('Total price to craft ' + str(itemYield) + ' ' + item + ' is: ' + str(int(cost)) + ' gil')
-    print('Total sale price of ' + str(itemYield) + ' ' + item + ' is: ' + str(int(value)) + ' gil')
-    print('Profit per craft: ' + str(int(profit)) + ' gil')
-
+    return itemYield, cost, value, profit
 
 
 
