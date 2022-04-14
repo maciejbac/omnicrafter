@@ -104,7 +104,7 @@ def getID(itemName):
             f.close()
             return row[0]
     f.close()
-    return 'NotFound'
+    return 'Not Found'
 
 def getPrice(itemID):
     result = request.get('https://universalis.app/api/Lich/' + itemID)
