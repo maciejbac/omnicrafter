@@ -112,7 +112,6 @@ def getPrice(itemID):
         price = result.json()['listings'][1]['pricePerUnit']
     except:
         price = -1
-        return int(price)
 
     return int(price)
 
