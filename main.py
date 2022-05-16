@@ -115,5 +115,9 @@ def getPrice(itemID):
 
     return int(price)
 
+def getCrystals():
+    crystalStack = []
+    
+
 if __name__ == "__main__":
     main()
