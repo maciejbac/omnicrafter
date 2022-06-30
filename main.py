@@ -118,6 +118,5 @@ def getPrice(itemID):
 def getCrystals():
     crystalStack = []
     
-
 if __name__ == "__main__":
     main()
