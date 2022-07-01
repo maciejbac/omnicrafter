@@ -15,6 +15,7 @@ def main():
 
     elif answer == '3':
         answer = input('Recipes:\n1. Pumpkin Potage\n2. Chilled Popoto Soup\n3. Pumpkin Ratatouille\nAnswer: ')
+        
         if answer == '1':
             item = 'Pumpkin Potage'
         elif answer == '2':
