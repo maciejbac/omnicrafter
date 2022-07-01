@@ -14,11 +14,13 @@ def main():
         print(searchByName(item))
 
     elif answer == '3':
-        answer = input('Recipes:\n1. Pumpkin Potage\n2. Chilled Popoto Soup\nAnswer: ')
+        answer = input('Recipes:\n1. Pumpkin Potage\n2. Chilled Popoto Soup\n3. Pumpkin Ratatouille\nAnswer: ')
         if answer == '1':
             item = 'Pumpkin Potage'
         elif answer == '2':
             item = 'Chilled Popoto Soup'
+        elif answer == '3':
+            item = 'Pumpkin Ratatouille'
 
         itemYield, cost, value, profit = getCraftingCost(item)
         print('Total price to craft ' + str(itemYield) + ' ' + item + ' is: ' + str(int(cost)) + ' gil')
