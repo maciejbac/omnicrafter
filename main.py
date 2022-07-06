@@ -37,7 +37,9 @@ def getCraftingCost(item):
     matsArray = searchMats(item)
     itemYield = int(matsArray.pop(0))
 
+    # reset cost vaule
     cost = 0
+
     for material in matsArray:
         materialID = getID(material)
         materialPrice = getPrice(materialID)
