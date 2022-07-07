@@ -21,13 +21,20 @@ def main():
         elif answer == '2':
             item = 'Pumpkin Ratatouille'
 
-        itemYield, cost, value, profit = getCraftingCost(item)
+        itemYield, cost, value, profit = recipeSearch(item)
         print('Total price to craft ' + str(itemYield) + ' ' + item + ' is: ' + str(int(cost)) + ' gil')
         print('Total sale price of ' + str(itemYield) + ' ' + item + ' is: ' + str(int(value)) + ' gil')
         print('Profit per craft: ' + str(int(profit)) + ' gil')
 
     else:
         print('Incorrect input')
+
+def recipeSearch(itemName):
+
+
+        itemYield, cost, value, profit = getCraftingCost(itemName)
+        return itemYield, cost, value, profit
+
 
 def getCraftingCost(item):
     value = getPrice(getID(item))
