@@ -3,7 +3,7 @@ import requests as request
 
 def main():
 
-    answer = input('Would you like to search for an item with\n1. item ID\n2. Name\n3. Recipe\nAnswer: ')
+    answer = input('Would you like to search for an item with\n1. recipe\n2. Name\n3. item ID\nAnswer: ')
 
     if answer == '1':
         item = input('Item ID: ')
@@ -27,7 +27,7 @@ def main():
         itemCount = 1
         for item in itemArray:
             print(str(itemCount) + '. ' + item[0])
-            itemCount = itemCount = itemCount + 1
+            itemCount = itemCount + 1
 
         answer = int(input(''))
         workingItem = itemArray[answer-1][0]
