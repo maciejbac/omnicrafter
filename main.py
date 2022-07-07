@@ -3,7 +3,7 @@ import requests as request
 
 def main():
 
-    answer = input('Would you like to search for an item with\n1. recipe\n2. Name\n3. item ID\nAnswer: ')
+    answer = input('Would you like to search for an item with\n1. Recipe\n2. Name\n3. Item ID\nAnswer: ')
 
     if answer == '1':
         print('Recipes:')
