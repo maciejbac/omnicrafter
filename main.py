@@ -3,7 +3,7 @@ import requests as request
 
 def main():
 
-    answer = input('Would you like to search for an item with\n1. Recipe\n2. Name\n3. Item ID\nAnswer: ')
+    answer = input('Would you like to search for an item with\n1. Recipe\n2. Name\n3. Item ID\n4. All profitable recipes\nAnswer: ')
 
     if answer == '1':
         print('Recipes:')
@@ -38,6 +38,26 @@ def main():
     elif answer == '3':
         item = input('Item ID: ')
         print(searchByID(item))
+
+    elif answer == '4':
+        f = open(os.path.join('recipes.csv'))
+        items_file = csv.reader(f)
+
+        itemArray = []
+        for row in items_file:
+                itemArray.append(row)
+        f.close()
+
+        for i in range(0, len(itemArray)):
+            i = int(i)
+            workingItem = itemArray[i][0]
+            itemYield, cost, value, profit = getCraftingCost(workingItem)
+            if(profit > 0):
+                print(workingItem)
+                #print('Total price to craft ' + str(itemYield) + ' ' + workingItem + ' is: ' + str(int(cost)) + ' gil')
+                #print('Total sale price of ' + str(itemYield) + ' ' + workingItem + ' is: ' + str(int(value)) + ' gil')
+                print('Profit per craft: ' + str(int(profit)) + ' gil')
+                print('')
 
     else:
         print('Incorrect input')
