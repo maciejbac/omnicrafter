@@ -31,7 +31,7 @@ def main():
 
         answer = int(input(''))
         workingItem = itemArray[answer-1][0]
-        itemYield, cost, value, profit = recipeSearch(workingItem)
+        itemYield, cost, value, profit = getCraftingCost(workingItem)
         print(workingItem)
         print('Total price to craft ' + str(itemYield) + ' ' + workingItem + ' is: ' + str(int(cost)) + ' gil')
         print('Total sale price of ' + str(itemYield) + ' ' + workingItem + ' is: ' + str(int(value)) + ' gil')
@@ -39,13 +39,6 @@ def main():
 
     else:
         print('Incorrect input')
-
-def recipeSearch(itemName):
-
-
-        itemYield, cost, value, profit = getCraftingCost(itemName)
-        return itemYield, cost, value, profit
-
 
 def getCraftingCost(item):
     value = getPrice(getID(item))
