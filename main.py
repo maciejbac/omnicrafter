@@ -14,20 +14,6 @@ def main():
         print(searchByName(item))
 
     elif answer == '3':
-
-        answer = input('Recipes:\n1. Pumpkin Potage\n2. Pumpkin Ratatouille\nAnswer: ')
-
-        if answer == '1':
-            item = 'Pumpkin Potage'
-        elif answer == '2':
-            item = 'Pumpkin Ratatouille'
-
-        itemYield, cost, value, profit = recipeSearch(item)
-        print('Total price to craft ' + str(itemYield) + ' ' + item + ' is: ' + str(int(cost)) + ' gil')
-        print('Total sale price of ' + str(itemYield) + ' ' + item + ' is: ' + str(int(value)) + ' gil')
-        print('Profit per craft: ' + str(int(profit)) + ' gil')
-
-    elif answer == '4':
         print('Recipes:')
 
         f = open(os.path.join('recipes.csv'))
@@ -42,6 +28,14 @@ def main():
         for item in itemArray:
             print(str(itemCount) + '. ' + item[0])
             itemCount = itemCount = itemCount + 1
+
+        answer = int(input(''))
+        workingItem = itemArray[answer-1][0]
+        itemYield, cost, value, profit = recipeSearch(workingItem)
+        print(workingItem)
+        print('Total price to craft ' + str(itemYield) + ' ' + workingItem + ' is: ' + str(int(cost)) + ' gil')
+        print('Total sale price of ' + str(itemYield) + ' ' + workingItem + ' is: ' + str(int(value)) + ' gil')
+        print('Profit per craft: ' + str(int(profit)) + ' gil')
 
     else:
         print('Incorrect input')
