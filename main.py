@@ -54,8 +54,6 @@ def main():
             itemYield, cost, value, profit = getCraftingCost(workingItem)
             if(profit > 0):
                 print(workingItem)
-                #print('Total price to craft ' + str(itemYield) + ' ' + workingItem + ' is: ' + str(int(cost)) + ' gil')
-                #print('Total sale price of ' + str(itemYield) + ' ' + workingItem + ' is: ' + str(int(value)) + ' gil')
                 print('Profit per craft: ' + str(int(profit)) + ' gil')
                 print('')
 
