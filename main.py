@@ -29,7 +29,6 @@ def main():
         print('Total sale price of ' + str(itemYield) + ' ' + workingItem + ' is: ' + str(int(value)) + ' gil')
         print('Profit per craft: ' + str(int(profit)) + ' gil')
 
-
     elif answer == '2':
         item = input('Item Name: ')
         print(searchByName(item))
